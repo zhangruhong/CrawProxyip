@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig 
+ PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" 
+ "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<properties resource="db.properties" />
+
+	<!--
+		maxRequests 最大并发请求数（Statement并发数） maxSessions
+		最大Session数。即当前最大允许的并发SqlMapClient数。
+	-->
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		errorTracingEnabled="true" lazyLoadingEnabled="true" maxRequests="300"
+		maxSessions="100" maxTransactions="100" useStatementNamespaces="false" />
+
+	<!--
+		Configure a built-in transaction manager. If you're using an app
+		server, you probably want to use its transaction manager and a managed
+		datasource
+	-->
+	<transactionManager type="JDBC" commitRequired="false">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="${PROXYIP_lib_driver}" />
+			<property name="JDBC.ConnectionURL" value="${PROXYIP_lib_url}" />
+			<property name="JDBC.Username" value="${PROXYIP_lib_username}" />
+			<property name="JDBC.Password" value="${PROXYIP_lib_password}" />
+
+
+			<!-- 数据库连接池可维持的最大容量。 -->
+			<property name="Pool.MaximumActiveConnections" value="100" />
+
+			<!-- 数据库连接池中允许的挂起(idle)连接数。 -->
+			<property name="Pool.MaximumIdleConnections" value="10" />
+
+			<!-- 数据库联接池中，连接被某个任务所允许占用的最大时间，如果超过这个时间限定，连接将被强制收回。(毫秒) -->
+			<property name="Pool.MaximumCheckoutTime" value="30000" />
+
+			<!--
+				当线程试图从连接池中获取连接时，连接池中无可用连接可供使用， 此时线程将进入等待状态，直到池中出现空闲连接。
+				此参数设定了线程所允许等待的最长时间。(毫秒)。
+			-->
+			<property name="Pool.TimeToWait" value="30000" />
+
+			<property name="Pool.PingQuery" value="select 1" />
+			<property name="Pool.PingEnabled" value="true" />
+		</dataSource>
+	</transactionManager>
+
+
+	<sqlMap resource="com/ly/base/crawlproxy/proxy/bean/ProxyIP.xml" />
+</sqlMapConfig>

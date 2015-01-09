@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ProxyIP">
+
+	<select id="getProxyIP" parameterClass="java.util.Map"
+		resultClass="com.ly.base.crawlproxy.proxy.bean.ProxyIP">
+		select
+		ip,area,port,state,proxyType,responseTime,lastCheckDateTime
+		from
+		[TCUssCommon].[dbo].[ussProxies]
+		where ip = #ip# and port=#port#
+	</select>
+
+	<insert id="insertProxyIP" parameterClass="com.ly.base.crawlproxy.proxy.bean.ProxyIP">
+		INSERT INTO
+		[TCUssCommon].[dbo].[ussProxies]
+		([ip],[area],[port],[state],[proxyType],[responseTime],[lastCheckDateTime])
+		values(#ip#,#area#,#port#,#state#,#proxyType#,#responseTime#,#lastCheckDateTime#)
+    </insert>
+
+	<delete id="deleteProxyIP" parameterClass="java.lang.String">
+		delete from
+		[TCUssCommon].[dbo].[ussProxies]
+		where area='taobaobuy' and
+		lastCheckDateTime &lt; #lastCheckDateTime# 
+    </delete>
+
+	<update id="updateProxyIP" parameterClass="java.util.Map">
+		UPDATE ussProxies
+		SET
+		lastCheckDateTime=getdate()
+		WHERE ip=#ip#
+		AND
+		port=#port#
+		<![CDATA[/*Flat:游搜搜代理IP获取服务端/Author:王祚德/For:更新最后一次检查时间,和响应时间/File:httpProxy.xml/Fun:updateProxy*/]]>
+	</update>
+</sqlMap>
