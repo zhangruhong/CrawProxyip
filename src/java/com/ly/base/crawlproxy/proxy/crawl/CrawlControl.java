@@ -55,7 +55,7 @@ public class CrawlControl {
         // new Thread(new Crawl(dao, iphais, ipList, "iphai", isValid,
         // 20)).start();
         
-        new Thread(new Check("http://httpproxy.17usoft.com/tcproxy/getProxy.do?count=1&min=10", "line")).start();
+        new Thread(new Check("http://httpproxy.17usoft.com/tcproxy/getProxy.do?count=1&min=10", "linewzd-")).start();
         
         new Thread(new Monitor()).start();
         

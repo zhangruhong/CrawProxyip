@@ -44,11 +44,10 @@ public class Check implements Runnable {
             if (null != source && source.replaceAll("\r|\n", "").trim().matches("\\d+.\\d+.\\d+.\\d+\\:\\d+")) {
                 System.out.println("代理接口可以正常提取数据");
                 // LyUtil.sendMessage("18020280367", "代理接口可以正常提取数据");
-                
             } else {
                 // SendInfo.sentMessage("18020280367", name +
                 // ">公司代理接口提取不到代理数据了，代理服务挂了!");
-                LyUtil.sendMessage("18020280367", name + ">公司代理接口提取不到代理数据了，代理服务挂了!");
+                LyUtil.sendMessage("18020280367", name + " > 公司代理接口提取不到代理数据了，代理服务挂了!");
                 System.out.println("监控报警短信已经发出！");
                 SleepWait.sleepMinsTime(5);
             }

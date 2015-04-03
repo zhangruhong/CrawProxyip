@@ -30,6 +30,8 @@ public class LyUtil {
         // TCBase.Crawl TCBase.Crawl2250
         String url = "http://tccommon.17usoft.com/smstemplate/service/SendMessage?account=TCBase.Crawl&password=TCBase.Crawl2250&mobile=" + mobile + "&message=" + cont;
         String c = HttpUtils.getContent(url, "", 3);
+        // String c = HttpClientExample.getGetResponseWithHttpClient(url,
+        // "utf-8");
         System.out.println(c);
         if (c.equals("")) {
             c = "失败，短信提交不成功！";
