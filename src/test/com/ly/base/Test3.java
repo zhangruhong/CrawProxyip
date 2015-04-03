@@ -1,4 +1,4 @@
-package com.ly.base.crawlproxy.proxy.crawl;
+package com.ly.base;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,7 +9,7 @@ import com.usousou.crawl.httpdownloader.bean.UssPageContent;
 import com.usousou.crawl.httpdownloader.service.IPageContentDownService;
 import com.usousou.crawl.httpdownloader.service.impl.PageContentDownServiceImpl;
 
-public class Test {
+public class Test3 {
 	public static void main(String[] args) {
 		System.out.println(DateUtilZuode.getYesterday(30));
 		System.exit(0);

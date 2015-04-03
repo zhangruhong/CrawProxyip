@@ -24,7 +24,7 @@ public class CrawlControl {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        System.out.println("公司ip列表:" + p.getProperty("ip"));
+        System.out.println("companey ip list:" + p.getProperty("ip"));
         return p.getProperty("ip").split(";");
     }
     
