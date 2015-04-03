@@ -14,7 +14,7 @@ import java.util.Map;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-import com.ly.base.crawlproxy.proxy.bean.ProxyIP;
+import com.ly.base.crawlproxy.bean.ProxyIPBean;
 import com.ly.base.crawlproxy.proxy.util.TimeUtil;
 import com.tongcheng.lib.datetime.DateUtilZuode;
 
@@ -38,13 +38,13 @@ public class Test {
 		Map<String, Object> parms = new HashMap<String, Object>();
 		parms.put("ip", "201.152.36.315");
 		parms.put("port", 8080);
-		ProxyIP proxy = (ProxyIP) sqlMapClient.queryForObject("getProxyIP", parms);
+		ProxyIPBean proxy = (ProxyIPBean) sqlMapClient.queryForObject("getProxyIP", parms);
 		if (null != proxy)
 			System.out.println("返回得到的: " + proxy.getIp());
 
 		if (null == proxy) {
 			/** 插入INSERT */
-			proxy = new ProxyIP("201.152.36.35", 8080, "taobaoarea", "1", "高匿", "10", DateUtilZuode.DoFormatDateymdhms());
+			proxy = new ProxyIPBean("201.152.36.35", 8080, "taobaoarea", "1", "高匿", "10", DateUtilZuode.DoFormatDateymdhms());
 			sqlMapClient.insert("insertProxyIP", proxy);
 		}
 

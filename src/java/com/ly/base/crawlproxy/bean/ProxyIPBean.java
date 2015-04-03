@@ -1,4 +1,4 @@
-package com.ly.base.crawlproxy.proxy.bean;
+package com.ly.base.crawlproxy.bean;
 
 /**
  * Creation Date:2013-7-17
@@ -6,7 +6,7 @@ package com.ly.base.crawlproxy.proxy.bean;
  * Copyright 2008-2010 © 同程网 Inc. All Rights Reserved
  */
 
-public class ProxyIP {
+public class ProxyIPBean {
 
 	private String ip;
 	private String area;
@@ -16,11 +16,11 @@ public class ProxyIP {
 	private String responseTime;
 	private String lastCheckDateTime;
 
-	public ProxyIP() {
+	public ProxyIPBean() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProxyIP(String ip, int port, String area, String state, String proxytype, String responsetime, String lastcheckdatetime) {
+	public ProxyIPBean(String ip, int port, String area, String state, String proxytype, String responsetime, String lastcheckdatetime) {
 		// TODO Auto-generated constructor stub
 		this.ip = ip;
 		this.area = area;
