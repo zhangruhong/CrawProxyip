@@ -31,7 +31,7 @@ public class JipiaoCrawlMonitor {
     
     private static final Logger logger = LoggerFactory.getLogger(JipiaoCrawlMonitor.class);
     
-    @Scheduled(cron = "0 30 10-13 * * ?")
+    @Scheduled(cron = "0 30 10,11,12,13 * * ?")
     public void clientInfoTimer() {
         logger.info("开始调度执行....");
         System.out.println("开始调度执行....");
