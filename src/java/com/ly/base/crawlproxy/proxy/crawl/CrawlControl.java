@@ -10,7 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import com.ly.base.crawlproxy.jk.CheckJiPiaoStat;
+import com.ly.base.monitor.Check;
+import com.ly.base.monitor.Monitor;
 
 public class CrawlControl {
     
@@ -56,8 +57,8 @@ public class CrawlControl {
         
         new Thread(new Check("http://httpproxy.17usoft.com/tcproxy/getProxy.do?count=1&min=10", "line")).start();
         
-        new Thread(new CheckJiPiaoStat()).start();
-        // new Thread(new CheckJiPiaoStat2()).start();
+        new Thread(new Monitor()).start();
+        
     }
     
     public static void main(String[] args) {
