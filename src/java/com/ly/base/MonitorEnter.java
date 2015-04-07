@@ -19,9 +19,9 @@ import com.ly.base.monitor.ProxyFetchCheck;
  * @version 1.0.0, 2015年3月13日-下午2:49:44
  * @since 2015年3月13日-下午2:49:44
  */
-public class Monitor implements Runnable {
+public class MonitorEnter implements Runnable {
     public static void main(String[] args) {
-        new Thread(new Monitor()).start();
+        new Thread(new MonitorEnter()).start();
     }
     
     @Override

@@ -55,12 +55,4 @@ public class ProxyFetchCheck implements Runnable {
             SleepWait.sleepSecondTime(30);
         }
     }
-    
-    public static void main(String[] args) {
-        new Thread(new ProxyFetchCheck("http://httpproxy.17usoft.com/tcproxy/getProxy.do?count=1&min=10", "line")).start();
-        // new Thread(new
-        // Check("http://172.16.58.1:8089/tcproxy/getProxy.do?count=1&min=10",
-        // "test")).start();
-    }
-    
 }
