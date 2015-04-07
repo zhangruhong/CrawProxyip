@@ -21,10 +21,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.ly.base.crawlproxy.proxy.util.LyUtil;
 import com.tongcheng.lib.database.sqlserver.DBController;
 import com.tongcheng.lib.database.sqlserver.DbUtil;
 import com.tongcheng.lib.datetime.DateUtilZuode;
+import com.tongcheng.lib.sendmessage.LyUtil;
 
 @Component
 public class JipiaoCrawlMonitor {
@@ -43,7 +43,6 @@ public class JipiaoCrawlMonitor {
             db.executeQuery(select);
             ResultSet rs = db.getRs();
             if (rs.next()) {
-                
                 LyUtil.sendMessage("18020280367", "机票比价" + DateUtilZuode.getDateTimeString("hh") + "时的抓取量是" + rs.getString("s"));
             }
         } catch (Exception e) {

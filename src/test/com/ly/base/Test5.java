@@ -17,9 +17,8 @@ import com.ly.base.crawlproxy.proxy.util.HttpClientExample;
  * 
  */
 public class Test5 {
-	public static void main(String[] args) {
-		String source = HttpClientExample.getGetResponseWithHttpClient("http://httpproxy.17usoft.com/tcproxy/getProxy.do?count=1&min=10", "GBK");
-		System.out.println(source);
-
-	}
+    public static void main(String[] args) {
+        String source = HttpClientExample.getGetResponseWithHttpClient("http://httpproxy.17usoft.com/tcproxy/getProxy.do?count=1&min=10", "GBK");
+        System.out.println(source);
+    }
 }

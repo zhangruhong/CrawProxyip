@@ -10,8 +10,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ly.base.crawlproxy.proxy.util.FetchUtil;
-import com.ly.base.crawlproxy.proxy.util.LyUtil;
 import com.tongcheng.lib.getpage.dywuss.GetPageSrc;
+import com.tongcheng.lib.sendmessage.LyUtil;
 import com.tongcheng.lib.sleep.SleepWait;
 import com.usousou.crawl.hps.bean.HttpProxy;
 import com.usousou.crawl.hps.service.IGetHttpProxyService;
@@ -30,9 +30,13 @@ import com.usousou.crawl.httpdownloader.service.impl.PageContentDownServiceImpl;
 public class Crawl implements Runnable {
     
     private String[] crawlUrlList;
+    
     private String[] ipList;// 公司ip列表
+    
     private String SupplierName;// 淘宝供应商专家名称
+    
     private boolean isValid;
+    
     private int waitmin;// 等待多少秒再抓取
     
     /**

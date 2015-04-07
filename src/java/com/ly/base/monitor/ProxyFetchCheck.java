@@ -8,8 +8,8 @@ package com.ly.base.monitor;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.ly.base.crawlproxy.proxy.util.LyUtil;
 import com.tongcheng.lib.getpage.dywuss.GetPageSrc;
+import com.tongcheng.lib.sendmessage.LyUtil;
 import com.tongcheng.lib.sleep.SleepWait;
 
 /**
@@ -20,13 +20,13 @@ import com.tongcheng.lib.sleep.SleepWait;
  * @version 1.000, 2014-3-14
  * 
  */
-public class Check implements Runnable {
+public class ProxyFetchCheck implements Runnable {
     
     private String url;
     
     private String name;
     
-    public Check(String url, String name) {
+    public ProxyFetchCheck(String url, String name) {
         // TODO Auto-generated constructor stub
         this.url = url;
         this.name = name;
@@ -57,7 +57,7 @@ public class Check implements Runnable {
     }
     
     public static void main(String[] args) {
-        new Thread(new Check("http://httpproxy.17usoft.com/tcproxy/getProxy.do?count=1&min=10", "line")).start();
+        new Thread(new ProxyFetchCheck("http://httpproxy.17usoft.com/tcproxy/getProxy.do?count=1&min=10", "line")).start();
         // new Thread(new
         // Check("http://172.16.58.1:8089/tcproxy/getProxy.do?count=1&min=10",
         // "test")).start();

@@ -1,6 +1,6 @@
 package com.ly.base;
 
-import com.ly.base.crawlproxy.proxy.util.LyUtil;
+import com.tongcheng.lib.sendmessage.LyUtil;
 
 public class Test2 {
     public static void main(String[] args) {

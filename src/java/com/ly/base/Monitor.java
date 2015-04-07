@@ -3,10 +3,13 @@
  * 
  * Copyright 2008-2015 © 同程网 Inc. All Rights Reserved
  */
-package com.ly.base.monitor;
+package com.ly.base;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.ly.base.crawlproxy.proxy.crawl.CrawlControl;
+import com.ly.base.monitor.ProxyFetchCheck;
 
 /**
  * Description Of The Class<br/>
@@ -25,5 +28,10 @@ public class Monitor implements Runnable {
     public void run() {
         // TODO Auto-generated method stub
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
+        
+        new CrawlControl().crawlData();
+        
+        new Thread(new ProxyFetchCheck("http://httpproxy.17usoft.com/tcproxy/getProxy.do?count=1&min=10", "linewzd-")).start();
+        
     }
 }

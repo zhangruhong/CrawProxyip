@@ -7,9 +7,9 @@ package com.ly.base.monitor;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.ly.base.crawlproxy.proxy.util.LyUtil;
 import com.tongcheng.lib.datetime.DateUtilZuode;
 import com.tongcheng.lib.getpage.dywuss.GetPageSrc;
+import com.tongcheng.lib.sendmessage.LyUtil;
 import com.tongcheng.lib.sleep.SleepWait;
 
 /**
@@ -22,20 +22,13 @@ import com.tongcheng.lib.sleep.SleepWait;
  */
 public class ShojiUrlCheckMonitor {
     
+    public static int checkCount = 0;
+    
     public static int failCount = 0;
     
-    public static void main(String[] args) {
-        while (true) {
-            int x = crawlShouji();
-            if (x == 1)
-                SleepWait.sleepMinsTime(30);
-            else
-                SleepWait.sleepMinsTime(1);
-            
-        }
-    }
-    
     public static int crawlShouji() {
+        checkCount++;
+        System.out.println("第" + checkCount + "次检测....");
         String url = "http://v.showji.com/Locating/showji.com20150108.aspx?m=18914095862&output=json&callback=querycallback&timestamp=1425283243085";
         String c = GetPageSrc.getPageContent(url, 3);
         if (StringUtils.isNotBlank(c) && c.contains("querycallback")) {
@@ -50,6 +43,16 @@ public class ShojiUrlCheckMonitor {
             }
         }
         return 0;
+    }
+    
+    public static void main(String[] args) {
+        while (true) {
+            int x = ShojiUrlCheckMonitor.crawlShouji();
+            if (x == 1)
+                SleepWait.sleepMinsTime(60);
+            else
+                SleepWait.sleepMinsTime(30);
+        }
     }
     
 }
